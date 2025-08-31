@@ -33,3 +33,7 @@ Requisitos para o servidor DNS recursivo:
 ## Requisitos do GitLab
 
 1. Deve rodar no subdomínio ".gitlab".
+
+## Requisitos do Wordpress
+
+1. Deve rodar no subdomínio ".blog".
