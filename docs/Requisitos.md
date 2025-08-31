@@ -24,6 +24,8 @@ Requisitos para o servidor DNS recursivo:
 
 4. Deve rodar em outro endereço IP.
 
+5. O DNS sobre TLS e o DNS sobre HTTPS devem estar sobre o subdomínio ".dns".
+
 ## Requisitos do Nextcloud
 
 1. Deve rodar no subdomínio ".nextcloud".
