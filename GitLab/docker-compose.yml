@@ -1,0 +1,19 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce
+    container_name: GitLab
+    restart: always
+    hostname: ${GITLAB_HOSTNAME}
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://${GITLAB_HOSTNAME}'
+        gitlab_rails['lfs_enabled'] = true
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/logs:/var/log/gitlab'
+      - '$GITLAB_HOME/data:/var/opt/gitlab'
+    shm_size: '256m'
