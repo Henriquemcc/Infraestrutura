@@ -21,3 +21,5 @@ Requisitos para o servidor DNS recursivo:
 2. Deve ser compatível com DNS sobre TLS.
 
 3. Deve ser compatível com DNS sobre HTTPS.
+
+4. Deve rodar em outro endereço IP.
