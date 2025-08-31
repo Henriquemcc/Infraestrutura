@@ -26,14 +26,22 @@ Requisitos para o servidor DNS recursivo:
 
 5. O DNS sobre TLS e o DNS sobre HTTPS devem estar sobre o subdomínio "dns".
 
+6. O certificado SSL/TLS do DNS sobre TLS e DNS sobre HTTPS deve ser assinado digitalmente pelo Let's Encrypt.
+
 ## Requisitos do Nextcloud
 
 1. Deve rodar no subdomínio "nextcloud".
+
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
 
 ## Requisitos do GitLab
 
 1. Deve rodar no subdomínio "gitlab".
 
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+
 ## Requisitos do Wordpress
 
 1. Deve rodar no subdomínio "blog".
+
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
