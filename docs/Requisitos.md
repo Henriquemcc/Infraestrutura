@@ -24,16 +24,16 @@ Requisitos para o servidor DNS recursivo:
 
 4. Deve rodar em outro endereço IP.
 
-5. O DNS sobre TLS e o DNS sobre HTTPS devem estar sobre o subdomínio ".dns".
+5. O DNS sobre TLS e o DNS sobre HTTPS devem estar sobre o subdomínio "dns".
 
 ## Requisitos do Nextcloud
 
-1. Deve rodar no subdomínio ".nextcloud".
+1. Deve rodar no subdomínio "nextcloud".
 
 ## Requisitos do GitLab
 
-1. Deve rodar no subdomínio ".gitlab".
+1. Deve rodar no subdomínio "gitlab".
 
 ## Requisitos do Wordpress
 
-1. Deve rodar no subdomínio ".blog".
+1. Deve rodar no subdomínio "blog".
