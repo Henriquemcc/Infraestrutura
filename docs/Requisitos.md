@@ -11,3 +11,13 @@ Requisitos para a infraestrutura:
 4. Rodar uma instância do Wordpress.
 
 5. Rodar uma instância do Mastodon.
+
+## Requisitos Servidor DNS Recursivo
+
+Requisitos para o servidor DNS recursivo:
+
+1. Deve validar DNSSEC.
+
+2. Deve ser compatível com DNS sobre TLS.
+
+3. Deve ser compatível com DNS sobre HTTPS.
