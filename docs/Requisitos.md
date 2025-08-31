@@ -23,3 +23,7 @@ Requisitos para o servidor DNS recursivo:
 3. Deve ser compatível com DNS sobre HTTPS.
 
 4. Deve rodar em outro endereço IP.
+
+## Requisitos do Nextcloud
+
+1. Deve rodar no subdomínio ".nextcloud".
