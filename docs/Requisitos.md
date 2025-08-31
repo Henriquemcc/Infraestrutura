@@ -29,3 +29,7 @@ Requisitos para o servidor DNS recursivo:
 ## Requisitos do Nextcloud
 
 1. Deve rodar no subdomínio ".nextcloud".
+
+## Requisitos do GitLab
+
+1. Deve rodar no subdomínio ".gitlab".
