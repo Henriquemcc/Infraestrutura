@@ -7,6 +7,7 @@ Requisitos para a infraestrutura:
 3. Rodar uma instância do GitLab.
 4. Rodar uma instância do Wordpress.
 5. Rodar uma instância do Mastodon.
+6. Todas as instâncias devem ser containers Docker.
 
 ## Requisitos do Servidor DNS Recursivo
 
