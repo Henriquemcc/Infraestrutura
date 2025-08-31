@@ -12,7 +12,7 @@ Requisitos para a infraestrutura:
 
 5. Rodar uma instância do Mastodon.
 
-## Requisitos Servidor DNS Recursivo
+## Requisitos do Servidor DNS Recursivo
 
 Requisitos para o servidor DNS recursivo:
 
