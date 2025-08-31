@@ -33,3 +33,8 @@ Requisitos para o servidor DNS recursivo:
 
 1. Deve rodar no subdomínio "blog".
 2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+
+## Requisitos do Mastodon
+
+1. Deve rodar no subdomínio "mastodon".
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
