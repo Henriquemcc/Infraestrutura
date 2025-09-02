@@ -16,8 +16,8 @@ services:
     image: nextcloud
     container_name: nextcloud
     restart: always
-    ports:
-      - "80:80"
+    # ports:
+    #   - "80:80"
     links:
       - nextcloud_db
     volumes:

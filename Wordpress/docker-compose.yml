@@ -2,8 +2,8 @@ services:
   wordpress:
     image: wordpress
     restart: always
-    ports:
-      - "80:80"
+    # ports:
+    #   - "80:80"
     environment:
       WORDPRESS_DB_HOST: wordpress_db
       WORDPRESS_DB_USER: wordpress
