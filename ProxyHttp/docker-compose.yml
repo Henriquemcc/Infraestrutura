@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    volumes:
+      - ./nginx.conf.template:/etc/nginx/nginx.conf.template
+      - ./entrypoint.sh:/entrypoint.sh
+    ports:
+      - "80:80"
+      - "443:443"
+    command: [sh, "/entrypoint.sh"]
+
+    restart: always
+    environment:
+      - BASE_DOMAIN=${BASE_DOMAIN}

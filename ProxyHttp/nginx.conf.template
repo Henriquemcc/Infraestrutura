@@ -1,0 +1,29 @@
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen 80;
+        server_name gitlab.${BASE_DOMAIN};
+        location / {
+            proxy_pass http://gitlab.${BASE_DOMAIN}:80/;
+        }
+    }
+
+    server {
+        listen 80;
+        server_name nextcloud.${BASE_DOMAIN};
+        location / {
+            proxy_pass http://nextcloud.${BASE_DOMAIN}:80/;
+        }
+    }
+    
+      server {
+        listen 80;
+        server_name blog.${BASE_DOMAIN};
+        location / {
+            proxy_pass http://blog.${BASE_DOMAIN}:80/;
+        }
+    }
+}
