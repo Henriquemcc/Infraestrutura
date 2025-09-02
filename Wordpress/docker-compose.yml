@@ -5,13 +5,13 @@ services:
     ports:
       - "80:80"
     environment:
-      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_HOST: wordpress_db
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - wordpress:/var/www/html
-  db:
+  wordpress_db:
     image: mysql:8.0
     restart: always
     environment:
@@ -20,8 +20,8 @@ services:
       MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db:/var/lib/mysql
+      - wordpress_db:/var/lib/mysql
 
 volumes:
   wordpress:
-  db:
+  wordpress_db:
