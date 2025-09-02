@@ -1,0 +1,9 @@
+include:
+  # Serviços
+  - ./GitLab/docker-compose.yml
+  - ./Nextcloud/docker-compose.yml
+  - ./Wordpress/docker-compose.yml
+
+  # Infraestrutura
+  - ./ProxyHttp/docker-compose.yml
+  - ./ServidorDnsAutoritativo/docker-compose.yml
