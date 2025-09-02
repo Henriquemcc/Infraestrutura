@@ -1,0 +1,6 @@
+${BASE_DOMAIN} {
+    hosts {
+        whoami gitlab.${BASE_DOMAIN}
+        whoami nextcloud.${BASE_DOMAIN}
+        whoami blog.${BASE_DOMAIN}
+}
