@@ -22,7 +22,3 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - ~/Wordpress/db:/var/lib/mysql
-
-volumes:
-  wordpress:
-  wordpress_db:
