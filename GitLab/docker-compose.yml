@@ -8,6 +8,9 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://${GITLAB_HOSTNAME}'
         gitlab_rails['lfs_enabled'] = true
+        puma['worker_processes'] = 2
+        sidekiq['concurrency'] = 9
+        prometheus_monitoring['enable'] = false
     # ports:
       # - '80:80'
       # - '443:443'
