@@ -36,6 +36,7 @@ Requisitos para o servidor DNS recursivo:
 
 1. Deve rodar no subdomínio "blog".
 2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+3. Os dados armazenados devem ser salvos na pasta "~/Wordpress".
 
 ## Requisitos do Mastodon
 
