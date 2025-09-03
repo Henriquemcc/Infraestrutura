@@ -1,0 +1,20 @@
+services:
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+    entrypoint: certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: >
+      certonly --standalone -v --force-renewal
+      --email ${CERTBOT_EMAIL}
+      --agree-tos
+      --no-eff-email
+      -d ${BASE_DOMAIN}
+      ${SUBDOMAINS}
+
+volumes:
+  certbot-etc:
