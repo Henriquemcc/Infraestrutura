@@ -3,7 +3,7 @@ services:
     image: certbot/certbot
     container_name: certbot
     volumes:
-      - certbot-etc:/etc/letsencrypt
+      - ~/letsencrypt:/etc/letsencrypt
     entrypoint: certbot
     ports:
       - "80:80"
@@ -15,6 +15,3 @@ services:
       --no-eff-email
       -d ${BASE_DOMAIN}
       ${SUBDOMAINS}
-
-volumes:
-  certbot-etc:
