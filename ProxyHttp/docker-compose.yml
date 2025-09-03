@@ -5,6 +5,7 @@ services:
     volumes:
       - ./nginx.conf.template:/etc/nginx/nginx.conf.template
       - ./entrypoint.sh:/entrypoint.sh
+      - ~/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
