@@ -10,6 +10,9 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME','https://${WORDPRESS_HOSTNAME}');
+        define('WP_SITEURL','https://${WORDPRESS_HOSTNAME}');
     volumes:
       - ~/Wordpress/app:/var/www/html
   wordpress_db:
