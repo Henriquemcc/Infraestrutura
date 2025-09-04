@@ -23,9 +23,20 @@ http {
         ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
         server_name nextcloud.${BASE_DOMAIN};
         location / {
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;            
+            proxy_set_header Host $$host;
+            proxy_set_header X-Real-IP $$remote_addr;            
             proxy_pass http://nextcloud:80/;
+        }
+        location /.well-known/carddav {
+            return 301 $$scheme://$$host/remote.php/dav;
+        }
+
+        location /.well-known/caldav {
+            return 301 $$scheme://$$host/remote.php/dav;
+        }
+
+        location ^~ /.well-known {
+            return 301 $$scheme://$$host/index.php$$uri;
         }
     }
     
