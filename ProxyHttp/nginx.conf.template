@@ -4,32 +4,35 @@ events {
 
 http {
     server {
+        listen 80;
         listen 443 ssl;
         ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
         server_name gitlab.${BASE_DOMAIN};
         location / {
-            proxy_pass http://gitlab.${BASE_DOMAIN}:80/;
+            proxy_pass http://gitlab:80/;
         }
     }
 
     server {
+        listen 80;
         listen 443 ssl;
         ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
         server_name nextcloud.${BASE_DOMAIN};
         location / {
-            proxy_pass http://nextcloud.${BASE_DOMAIN}:80/;
+            proxy_pass http://nextcloud:80/;
         }
     }
     
       server {
+        listen 80;
         listen 443 ssl;
         ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
         server_name blog.${BASE_DOMAIN};
         location / {
-            proxy_pass http://blog.${BASE_DOMAIN}:80/;
+            proxy_pass http://wordpress:80/;
         }
     }
 }

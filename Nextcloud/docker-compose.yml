@@ -13,7 +13,7 @@ services:
 
   nextcloud_app:
     image: nextcloud
-    hostname: ${NEXTCLOUD_HOSTNAME}
+    hostname: nextcloud
     restart: always
     # ports:
     #   - "80:80"

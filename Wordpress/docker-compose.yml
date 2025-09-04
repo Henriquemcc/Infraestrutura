@@ -1,7 +1,7 @@
 services:
   wordpress:
     image: wordpress
-    hostname: ${WORDPRESS_HOSTNAME}
+    hostname: wordpress
     restart: always
     # ports:
     #   - "80:80"

@@ -3,7 +3,7 @@ services:
     image: gitlab/gitlab-ce
     container_name: GitLab
     restart: always
-    hostname: ${GITLAB_HOSTNAME}
+    hostname: gitlab
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://${GITLAB_HOSTNAME}'
