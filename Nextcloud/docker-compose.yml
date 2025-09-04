@@ -10,6 +10,9 @@ services:
       - MYSQL_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
+      - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_HOSTNAME}
+      - NEXTCLOUD_OVERWRITEHOST=${NEXTCLOUD_HOSTNAME}
+      - NEXTCLOUD_OVERWRITEPROTOCOL=https
 
   nextcloud_app:
     image: nextcloud
