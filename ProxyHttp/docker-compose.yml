@@ -1,15 +1,13 @@
 services:
   nginx:
-    image: nginx:latest
+    build: .
     container_name: nginx-proxy
     volumes:
       - ./nginx.conf.template:/etc/nginx/nginx.conf.template
-      - ./entrypoint.sh:/entrypoint.sh
       - ~/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
-    command: [sh, "/entrypoint.sh"]
 
     restart: always
     environment:

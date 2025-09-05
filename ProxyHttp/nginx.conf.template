@@ -6,9 +6,9 @@ http {
     server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
-        server_name gitlab.${BASE_DOMAIN};
+        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
+        server_name gitlab.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_pass http://gitlab:80/;
             proxy_set_header Host $host;
@@ -19,33 +19,33 @@ http {
     server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
-        server_name nextcloud.${BASE_DOMAIN};
+        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
+        server_name nextcloud.{{ .Env.BASE_DOMAIN }};
         location / {
-            proxy_set_header Host $$host;
-            proxy_set_header X-Real-IP $$remote_addr;            
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;            
             proxy_pass http://nextcloud:80/;
         }
         location /.well-known/carddav {
-            return 301 $$scheme://$$host/remote.php/dav;
+            return 301 $scheme://$host/remote.php/dav;
         }
 
         location /.well-known/caldav {
-            return 301 $$scheme://$$host/remote.php/dav;
+            return 301 $scheme://$host/remote.php/dav;
         }
 
         location ^~ /.well-known {
-            return 301 $$scheme://$$host/index.php$$uri;
+            return 301 $scheme://$host/index.php$uri;
         }
     }
     
       server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem;
-        server_name blog.${BASE_DOMAIN};
+        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
+        server_name blog.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
