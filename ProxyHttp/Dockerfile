@@ -12,5 +12,5 @@ RUN chmod +x entrypoint.sh
 EXPOSE 443 80
 
 # Definido o comando de inicialização
-CMD [ "/entrypoint.sh" ]
+CMD [ "sh", "entrypoint.sh" ]
 
