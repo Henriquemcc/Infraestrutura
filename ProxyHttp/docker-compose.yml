@@ -4,7 +4,8 @@ services:
     container_name: nginx-proxy
     volumes:
       - ./nginx.conf.template:/etc/nginx/nginx.conf.template
-      - ~/letsencrypt:/etc/letsencrypt
+      - ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt
+      - ~/letsencrypt/var/www/certbot:/var/www/certbot
     ports:
       - "80:80"
       - "443:443"
