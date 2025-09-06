@@ -1,28 +1,63 @@
 worker_processes auto;
 
+events {}
+
 http {
     ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
     ssl_protocols       TLSv1.3;
 
+    # GitLab
     server {
         listen 80;
+        server_name gitlab.{{ .Env.BASE_DOMAIN }};
+
+        # Allow Let's Encrypt challenges
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        # Redirect everything else to HTTPS
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+    server {  
         listen 443 ssl;
         server_name gitlab.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_pass http://gitlab:80/;
             proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;            
+            proxy_set_header X-Real-IP $remote_addr;    
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;        
         }
     }
 
+    # nextcloud
     server {
         listen 80;
+        server_name nextcloud.{{ .Env.BASE_DOMAIN }};
+
+        # Allow Let's Encrypt challenges
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        # Redirect everything else to HTTPS
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+    server {
+        
         listen 443 ssl;
         server_name nextcloud.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;            
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;           
             proxy_pass http://nextcloud:80/;
         }
         location /.well-known/carddav {
@@ -38,13 +73,29 @@ http {
         }
     }
     
-      server {
+    # wordpress
+    server {
         listen 80;
+        server_name blog.{{ .Env.BASE_DOMAIN }};
+
+        # Allow Let's Encrypt challenges
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        # Redirect everything else to HTTPS
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+    server {
         listen 443 ssl;
         server_name blog.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
             proxy_pass http://wordpress:80/;
         }
     }
