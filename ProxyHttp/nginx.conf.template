@@ -1,13 +1,13 @@
-events {
-    worker_connections 1024;
-}
+worker_processes auto;
 
 http {
+    ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
+    ssl_protocols       TLSv1.3;
+
     server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
         server_name gitlab.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_pass http://gitlab:80/;
@@ -19,8 +19,6 @@ http {
     server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
         server_name nextcloud.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_set_header Host $host;
@@ -43,8 +41,6 @@ http {
       server {
         listen 80;
         listen 443 ssl;
-        ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
         server_name blog.{{ .Env.BASE_DOMAIN }};
         location / {
             proxy_set_header Host $host;
