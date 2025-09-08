@@ -7,7 +7,8 @@ Requisitos para a infraestrutura:
 3. Rodar uma instância do GitLab.
 4. Rodar uma instância do Wordpress.
 5. Rodar uma instância do Mastodon.
-6. Todas as instâncias devem ser containers Docker.
+6. Rodar uma instância do MailCow.
+7. Todas as instâncias devem ser containers Docker.
 
 ## Requisitos do Servidor DNS Recursivo
 
@@ -41,4 +42,9 @@ Requisitos para o servidor DNS recursivo:
 ## Requisitos do Mastodon
 
 1. Deve rodar no subdomínio "mastodon".
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+
+## Requisitos do MailCow
+
+1. Deve rodar no subdomínio "mail".
 2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
