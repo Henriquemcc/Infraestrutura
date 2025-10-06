@@ -3,7 +3,7 @@ services:
     image: postgres:18-alpine
     restart: always
     volumes:
-      - ~/Mastodon/db:/var/lib/postgresql/data
+      - Mastodon_db:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=mastodon
       - POSTGRES_PASSWORD=${MASTODON_DB_PASSWORD}
@@ -15,7 +15,7 @@ services:
     image: redis:8.2.2-alpine
     restart: always
     volumes:
-      - ~/Mastodon/redis:/data
+      - Mastodon_redis:/data
     healthcheck:
       test: [ 'CMD', 'redis-cli', 'ping' ]
 
@@ -81,6 +81,11 @@ services:
       - mastodon_db
       - mastodon_redis
     volumes:
-      - ~/Mastodon/sidekiq/public/system:/mastodon/public/system
+      - Mastodon_Sidekiq:/mastodon/public/system
     healthcheck:
       test: [ 'CMD-SHELL', "ps aux | grep '[s]idekiq\ 7' || false" ]
+
+volumes:
+  Mastodon_Sidekiq:
+  Mastodon_redis:
+  Mastodon_db:
