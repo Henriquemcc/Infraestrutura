@@ -3,4 +3,5 @@ ${BASE_DOMAIN} {
         whoami gitlab.${BASE_DOMAIN}
         whoami nextcloud.${BASE_DOMAIN}
         whoami blog.${BASE_DOMAIN}
+        whoami mastodon.${BASE_DOMAIN}
 }
