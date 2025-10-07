@@ -23,7 +23,7 @@ services:
     image: ghcr.io/mastodon/mastodon
     restart: always
     hostname: mastodon
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec puma -C config/puma.rb
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
       - WEB_DOMAIN=${MASTODON_HOSTNAME}
@@ -32,8 +32,9 @@ services:
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
       - DB_USER=mastodon
-      - DB_PASSWORD=${MASTODON_DB_PASSWORD}
+      - DB_PASS=${MASTODON_DB_PASSWORD}
       - DB_PORT=5432
+      - DB_NAME=mastodon
       - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
       - VAPID_PRIVATE_KEY=${MASTODON_VAPID_PRIVATE_KEY}
       - VAPID_PUBLIC_KEY=${MASTODON_VAPID_PUBLIC_KEY}
@@ -61,8 +62,9 @@ services:
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
       - DB_USER=mastodon
-      - DB_PASSWORD=${MASTODON_DB_PASSWORD}
+      - DB_PASS=${MASTODON_DB_PASSWORD}
       - DB_PORT=5432
+      - DB_NAME=mastodon
       - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
       - VAPID_PRIVATE_KEY=${MASTODON_VAPID_PRIVATE_KEY}
       - VAPID_PUBLIC_KEY=${MASTODON_VAPID_PUBLIC_KEY}
@@ -87,8 +89,9 @@ services:
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
       - DB_USER=mastodon
-      - DB_PASSWORD=${MASTODON_DB_PASSWORD}
+      - DB_PASS=${MASTODON_DB_PASSWORD}
       - DB_PORT=5432
+      - DB_NAME=mastodon
       - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
       - VAPID_PRIVATE_KEY=${MASTODON_VAPID_PRIVATE_KEY}
       - VAPID_PUBLIC_KEY=${MASTODON_VAPID_PUBLIC_KEY}
