@@ -23,6 +23,7 @@ services:
     image: ghcr.io/mastodon/mastodon
     restart: always
     hostname: mastodon
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
       - REDIS_HOST=mastodon_redis
@@ -47,6 +48,7 @@ services:
   mastodon_streaming:
     image: ghcr.io/mastodon/mastodon-streaming
     restart: always
+    command: node ./streaming/index.js
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
       - REDIS_HOST=mastodon_redis
