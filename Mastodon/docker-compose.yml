@@ -26,6 +26,8 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
+      - WEB_DOMAIN=${MASTODON_HOSTNAME}
+      - DEFAULT_LOCALE=pt-br
       - REDIS_HOST=mastodon_redis
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
@@ -51,6 +53,8 @@ services:
     command: node ./streaming/index.js
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
+      - WEB_DOMAIN=${MASTODON_HOSTNAME}
+      - DEFAULT_LOCALE=pt-br
       - REDIS_HOST=mastodon_redis
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
@@ -75,6 +79,8 @@ services:
     restart: always
     environment:
       - LOCAL_DOMAIN=${MASTODON_HOSTNAME}
+      - WEB_DOMAIN=${MASTODON_HOSTNAME}
+      - DEFAULT_LOCALE=pt-br
       - REDIS_HOST=mastodon_redis
       - REDIS_PORT=6379
       - DB_HOST=mastodon_db
