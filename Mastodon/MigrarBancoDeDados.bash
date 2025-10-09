@@ -40,7 +40,7 @@ docker run -it -e DB_NAME=mastodon_db \
   -e SECRET_KEY_BASE="${MASTODON_SECRET_KEY_BASE}" \
   --network mastodon_net_tmp \
   --name mastodon_tmp \
-  ghcr.io/mastodon/mastodon:v4.4.4 bin/rails db:create --trace
+  ghcr.io/mastodon/mastodon:v4.4.4 bin/rails db:migrate --trace
 
 # Parando containers
 docker stop mastodon_tmp mastodon_db_tmp mastodon_redis_tmp
