@@ -21,7 +21,7 @@ docker run -d -e POSTGRES_USER=mastodon \
   --name mastodon_db_tmp \
   --hostname mastodon_db_tmp \
   --network mastodon_net_tmp \
-  postgres:18-alpine
+  postgres:14-alpine
 sleep 5s
 
 # Criando o banco de dados
