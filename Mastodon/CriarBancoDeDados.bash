@@ -17,7 +17,7 @@ docker run -it -e DB_NAME=mastodon \
   -e SECRET_KEY_BASE="${MASTODON_SECRET_KEY_BASE}" \
   --network "${NETWORK_NAME}" \
   --name mastodon_tmp \
-  ghcr.io/mastodon/mastodon:v4.4.4 bundle exec db:setup --trace
+  ghcr.io/mastodon/mastodon:v4.4.4 bundle exec rails db:setup --trace
 
 # Parando containers
 docker stop mastodon_tmp
