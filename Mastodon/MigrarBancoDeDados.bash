@@ -17,7 +17,6 @@ docker run -d --name mastodon_redis_tmp \
 docker run -d -e POSTGRES_USER=mastodon \
   -e POSTGRES_PASSWORD="${MASTODON_DB_PASSWORD}" \
   -e POSTGRES_DB=mastodon \
-  -e POSTGRES_HOST_AUTH_METHOD=trust \
   -v Mastodon_db:/var/lib/postgresql/data \
   --name mastodon_db_tmp \
   --hostname mastodon_db_tmp \
@@ -25,14 +24,13 @@ docker run -d -e POSTGRES_USER=mastodon \
   postgres:14-alpine
 sleep 5s
 
-# Criando o banco de dados
-docker run -it -e DB_NAME=mastodon_db \
+# Migrando o banco de dados
+docker run -it -e DB_NAME=mastodon \
   -e DB_USER=mastodon \
   -e DB_PASS="${MASTODON_DB_PASSWORD}" \
-  -e DB_NAME=mastodon \
   -e DB_HOST=mastodon_db_tmp \
   -e DB_PORT=5432 \
-  -e REDIS_HOST=mastodon_redis \
+  -e REDIS_HOST=mastodon_redis_tmp \
   -e REDIS_PORT=6379 \
   -e ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY="${MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY}" \
   -e ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT="${MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT}" \
