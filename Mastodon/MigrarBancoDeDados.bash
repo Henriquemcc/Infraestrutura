@@ -22,7 +22,12 @@ docker run -d -e POSTGRES_USER=mastodon \
   --hostname mastodon_db_tmp \
   --network mastodon_net_tmp \
   postgres:14-alpine
-sleep 5s
+
+# Aguardando o PostgreSQL inicializar
+echo "Aguardando o PostgreSQL inicializar..."
+until docker exec mastodon_db_tmp pg_isready -U mastodon > /dev/null 2>&1; do
+  sleep 2
+done
 
 # Migrando o banco de dados
 docker run -it -e DB_NAME=mastodon \
@@ -38,7 +43,7 @@ docker run -it -e DB_NAME=mastodon \
   -e SECRET_KEY_BASE="${MASTODON_SECRET_KEY_BASE}" \
   --network mastodon_net_tmp \
   --name mastodon_tmp \
-  ghcr.io/mastodon/mastodon:v4.4.4 bin/rails db:migrate --trace
+  ghcr.io/mastodon/mastodon:v4.4.4 bundle exec rails db:migrate --trace
 
 # Parando containers
 docker stop mastodon_tmp mastodon_db_tmp mastodon_redis_tmp
