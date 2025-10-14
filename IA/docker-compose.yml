@@ -6,8 +6,6 @@ services:
     volumes:
       - open-webui:/app/backend/data
       - ollama:/root/.ollama
-    ports:
-      - 3000:8080
 volumes:
   open-webui:
   ollama:
