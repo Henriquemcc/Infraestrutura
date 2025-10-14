@@ -4,6 +4,7 @@ include:
   - ./Nextcloud/docker-compose.yml
   - ./Wordpress/docker-compose.yml
   - ./Mastodon/docker-compose.yml
+  - ./IA/docker-compose.yml
 
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml
