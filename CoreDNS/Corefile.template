@@ -5,9 +5,11 @@ ${BASE_DOMAIN} {
         whoami blog.${BASE_DOMAIN}
         whoami mastodon.${BASE_DOMAIN}
         whoami ia.${BASE_DOMAIN}
+        whoami dns.${BASE_DOMAIN}
     }
 }
 
 . {
     forward . 172.254.0.253
+    tls /etc/letsencrypt/live/${BASE_DOMAIN}/fullchain.pem /etc/letsencrypt/live/${BASE_DOMAIN}/privkey.pem
 }

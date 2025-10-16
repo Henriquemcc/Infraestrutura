@@ -7,6 +7,7 @@ services:
     restart: always
     volumes:
       - ./Corefile:/etc/coredns/Corefile
+      - ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt:ro
     ports:
       - "53:53/udp"
       - "53:53/tcp"
