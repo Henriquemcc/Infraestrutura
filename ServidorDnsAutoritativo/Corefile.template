@@ -9,5 +9,5 @@ ${BASE_DOMAIN} {
 }
 
 . {
-    forward . unbound
+    forward . unbound:53
 }
