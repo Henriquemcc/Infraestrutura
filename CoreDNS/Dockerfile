@@ -1,7 +1,7 @@
-FROM debian
+FROM alpine
 
 # Instalando requisitos
-RUN apt update && apt install -y golang git
+RUN apk add --no-cache go git
 
 # Baixando código fonte
 RUN git clone https://github.com/coredns/coredns.git /coredns
