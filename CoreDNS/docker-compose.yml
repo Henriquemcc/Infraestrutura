@@ -1,6 +1,6 @@
 services:
   coredns:
-    build: .
+    image: coredns/coredns:latest
     container_name: coredns
     hostname: coredns
     restart: always
