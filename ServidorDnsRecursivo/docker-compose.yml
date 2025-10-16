@@ -1,8 +1,0 @@
-services:
-  unbound:
-    container_name: ServidorDnsRecursivo
-    build: .
-    ports:
-      - "53:53/udp"
-      - "853:853/tcp"
-      - "443:443/tcp"

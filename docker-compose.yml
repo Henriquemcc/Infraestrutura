@@ -8,4 +8,13 @@ include:
 
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml
-  - ./ServidorDnsAutoritativo/docker-compose.yml
+  - ./CoreDNS/docker-compose.yml
+  - ./Unbound/docker-compose.yml
+
+networks:
+  dns-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.254.0.0/24
+  default:

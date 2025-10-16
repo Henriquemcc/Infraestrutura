@@ -7,3 +7,7 @@ ${BASE_DOMAIN} {
         whoami ia.${BASE_DOMAIN}
     }
 }
+
+. {
+    forward . 172.254.0.253
+}

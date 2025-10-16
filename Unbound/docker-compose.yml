@@ -1,0 +1,10 @@
+services:
+  unbound:
+    build: .
+    restart: always
+    container_name: unbound
+    hostname: unbound
+    networks:
+      dns-network:
+        ipv4_address: 172.254.0.253
+      default:

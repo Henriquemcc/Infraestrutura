@@ -2,9 +2,15 @@ services:
   coredns:
     image: coredns/coredns:latest
     container_name: coredns
+    command: -conf /etc/coredns/Corefile
     hostname: coredns
+    restart: always
     volumes:
       - ./Corefile:/etc/coredns/Corefile
     ports:
       - "53:53/udp"
       - "53:53/tcp"
+    networks:
+      dns-network:
+        ipv4_address: 172.254.0.254
+      default:
