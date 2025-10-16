@@ -1,7 +1,7 @@
 FROM debian
 
 # Instalando requisitos
-RUN apt update && apt install -y golang git ca-certificates libc6
+RUN apt update && apt install -y golang git ca-certificates
 
 # Baixando código fonte
 RUN git clone https://github.com/coredns/coredns.git /coredns
