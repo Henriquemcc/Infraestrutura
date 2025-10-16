@@ -9,3 +9,4 @@ include:
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml
   - ./ServidorDnsAutoritativo/docker-compose.yml
+  - ./ServidorDnsRecursivo/docker-compose.yml
