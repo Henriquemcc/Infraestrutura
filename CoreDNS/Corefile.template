@@ -9,5 +9,5 @@ ${BASE_DOMAIN} {
 }
 
 . {
-    forward . unbound:53
+    forward . 172.254.0.253
 }
