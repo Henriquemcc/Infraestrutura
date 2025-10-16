@@ -3,6 +3,7 @@ services:
     image: coredns/coredns:latest
     container_name: coredns
     hostname: coredns
+    restart: always
     volumes:
       - ./Corefile:/etc/coredns/Corefile
     ports:
