@@ -4,8 +4,10 @@ services:
     container_name: coredns
     hostname: coredns
     restart: always
+    environment:
+      - BASE_DOMAIN=${BASE_DOMAIN}
     volumes:
-      - ./Corefile:/etc/coredns/Corefile
+      - ./Corefile.template:/etc/coredns/Corefile.template
       - ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt:ro
     ports:
       - "53:53/udp"
