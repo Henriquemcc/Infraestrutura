@@ -1,8 +1,7 @@
 services:
   coredns:
-    image: coredns/coredns:latest
+    build: .
     container_name: coredns
-    command: -conf /etc/coredns/Corefile
     hostname: coredns
     restart: always
     volumes:
