@@ -5,9 +5,15 @@ ${BASE_DOMAIN} {
         whoami blog.${BASE_DOMAIN}
         whoami mastodon.${BASE_DOMAIN}
         whoami ia.${BASE_DOMAIN}
+        whoami dns.${BASE_DOMAIN}
     }
 }
 
 . {
+    forward . 172.254.0.253
+}
+
+tls://.:853 {
+    tls /etc/certs/fullchain.pem /etc/certs/privkey.pem
     forward . 172.254.0.253
 }

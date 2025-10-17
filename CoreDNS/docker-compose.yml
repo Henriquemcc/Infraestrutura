@@ -1,15 +1,18 @@
 services:
   coredns:
-    image: coredns/coredns:latest
+    build: .
     container_name: coredns
-    command: -conf /etc/coredns/Corefile
     hostname: coredns
     restart: always
+    environment:
+      - BASE_DOMAIN=${BASE_DOMAIN}
     volumes:
-      - ./Corefile:/etc/coredns/Corefile
+      - ./Corefile.template:/etc/coredns/Corefile.template
+      - ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt:ro
     ports:
       - "53:53/udp"
       - "53:53/tcp"
+      - "853:853/tcp"
     networks:
       dns-network:
         ipv4_address: 172.254.0.254
