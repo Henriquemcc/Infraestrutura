@@ -11,6 +11,7 @@ ${BASE_DOMAIN} {
 
 . {
     forward . 172.254.0.253
+    forward . FC00::00FE
 }
 
 tls://.:853 {

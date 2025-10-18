@@ -16,4 +16,5 @@ services:
     networks:
       dns-network:
         ipv4_address: 172.254.0.254
+        ipv6_address: FC00::00FD
       default:
