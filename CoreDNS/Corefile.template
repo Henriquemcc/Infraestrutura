@@ -10,7 +10,9 @@ ${BASE_DOMAIN} {
 }
 
 . {
-    forward . 172.254.0.253
+    forward . 172.254.0.253 {
+        tls_servername dns.${BASE_DOMAIN}
+    }
 }
 
 tls://.:853 {
