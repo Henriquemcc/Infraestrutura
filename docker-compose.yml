@@ -13,11 +13,9 @@ include:
 
 networks:
   dns-network:
-    enable_ipv6: true
     driver: bridge
     ipam:
       config:
         - subnet: 172.254.0.0/24
-        - subnet: FC00::/120
   default:
     enable_ipv6: true
