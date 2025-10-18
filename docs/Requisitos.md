@@ -43,7 +43,7 @@ Requisitos para o servidor DNS recursivo:
 
 1. Deve rodar no subdomínio "mastodon".
 2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
-3. Os dados armazenados devem ser salvos na pasta "~/Mastodon".
+3. Os dados armazenados devem ser salvos em volumes com o nome iniciando com "Mastodon".
 
 ## Requisitos do MailCow
 
