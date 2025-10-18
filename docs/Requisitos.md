@@ -20,6 +20,7 @@ Requisitos para o servidor DNS recursivo:
 4. Deve rodar em outro endereço IP.
 5. O DNS sobre TLS e o DNS sobre HTTPS devem estar sobre o subdomínio "dns".
 6. Os certificados SSL/TLS do DNS sobre TLS e DNS sobre HTTPS devem ser assinados digitalmente pelo Let's Encrypt.
+7. Deve permitir bloquear domínios através do Pi-Hole.
 
 ## Requisitos do Nextcloud
 
