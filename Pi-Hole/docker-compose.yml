@@ -1,0 +1,21 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    hostname: pihole
+    restart: always
+    environment:
+      - TZ='America/Sao_Paulo'
+      - WEBPASSWORD=${WEBPASSWORD}
+    volumes:
+      - ./setupVars.conf:/etc/pihole/setupVars.conf
+      - './Pihole_etc:/etc/pihole'
+      - './Pihole_etc_dnsmasqd:/etc/dnsmasq.d'
+    networks:
+      dns-network:
+        ipv4_address: 172.254.0.252
+      default:
+
+volumes:
+  Pihole_etc:
+  Pihole_etc_dnsmasqd:
