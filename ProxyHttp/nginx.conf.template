@@ -130,7 +130,7 @@ http {
     # IA Generativa
     server {
         listen 80;
-        server_name mastodon.{{ .Env.BASE_DOMAIN }};
+        server_name ia.{{ .Env.BASE_DOMAIN }};
 
         # Allow Let's Encrypt challenges
         location /.well-known/acme-challenge/ {
