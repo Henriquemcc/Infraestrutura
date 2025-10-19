@@ -9,8 +9,8 @@ services:
       - WEBPASSWORD=${WEBPASSWORD}
     volumes:
       - ./setupVars.conf:/etc/pihole/setupVars.conf
-      - './Pihole_etc:/etc/pihole'
-      - './Pihole_etc_dnsmasqd:/etc/dnsmasq.d'
+      - Pihole_etc:/etc/pihole
+      - Pihole_etc_dnsmasqd:/etc/dnsmasq.d
     networks:
       dns-network:
         ipv4_address: 172.254.0.252
