@@ -14,6 +14,7 @@ services:
     networks:
       dns-network:
         ipv4_address: 172.254.0.252
+      default:
 
 volumes:
   Pihole_etc:
