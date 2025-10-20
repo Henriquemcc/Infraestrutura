@@ -9,6 +9,7 @@ http {
 
     # GitLab
     upstream gitlab_upstream {
+        zone gitlab_zone 64k;
         server gitlab:80 max_fails=0 resolve;
     }
     server {
@@ -39,6 +40,7 @@ http {
 
     # nextcloud
     upstream nextcloud_upstream {
+        zone nextcloud_zone 64k;
         server nextcloud:80 max_fails=0 resolve;
     }
     server {
@@ -81,6 +83,7 @@ http {
     
     # wordpress
     upstream wordpress_upstream {
+        zone wordpress_zone 64k;
         server wordpress:80 max_fails=0 resolve;
     }
     server {
@@ -111,6 +114,7 @@ http {
 
     # Mastodon
     upstream mastodon_upstream {
+        zone mastodon_zone 64k;
         server mastodon:3000 max_fails=0 resolve;
     }
     server {
@@ -141,6 +145,7 @@ http {
 
     # IA Generativa
     upstream ia_upstream {
+        zone ia_zone 64k;
         server ia:8080 max_fails=0 resolve;
     }
     server {
