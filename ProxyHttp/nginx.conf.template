@@ -6,35 +6,44 @@ http {
     ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
     ssl_protocols       TLSv1.3;
+    resolver 127.0.0.11 valid=30s;
 
     # GitLab
-#    server {
-#        listen 80;
-#        server_name gitlab.{{ .Env.BASE_DOMAIN }};
-#
-#        # Allow Let's Encrypt challenges
-#        location /.well-known/acme-challenge/ {
-#            root /var/www/certbot;
-#        }
-#
-#        # Redirect everything else to HTTPS
-#        location / {
-#            return 301 https://$host$request_uri;
-#        }
-#    }
-#    server {
-#        listen 443 ssl;
-#        server_name gitlab.{{ .Env.BASE_DOMAIN }};
-#        location / {
-#            proxy_pass http://gitlab:80/;
-#            proxy_set_header Host $host;
-#            proxy_set_header X-Real-IP $remote_addr;
-#            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-#            proxy_set_header X-Forwarded-Proto $scheme;
-#        }
-#    }
+    upstream gitlab_upstream {
+        zone gitlab_zone 64k;
+        server gitlab:80 max_fails=0 resolve;
+    }
+    server {
+        listen 80;
+        server_name gitlab.{{ .Env.BASE_DOMAIN }};
+
+        # Allow Let's Encrypt challenges
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        # Redirect everything else to HTTPS
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+    server {
+        listen 443 ssl;
+        server_name gitlab.{{ .Env.BASE_DOMAIN }};
+        location / {
+            proxy_pass http://gitlab_upstream;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
 
     # nextcloud
+    upstream nextcloud_upstream {
+        zone nextcloud_zone 64k;
+        server nextcloud:80 max_fails=0 resolve;
+    }
     server {
         listen 80;
         server_name nextcloud.{{ .Env.BASE_DOMAIN }};
@@ -58,7 +67,7 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;           
-            proxy_pass http://nextcloud:80/;
+            proxy_pass http://nextcloud_upstream;
         }
         location /.well-known/carddav {
             return 301 $scheme://$host/remote.php/dav;
@@ -74,6 +83,10 @@ http {
     }
     
     # wordpress
+    upstream wordpress_upstream {
+        zone wordpress_zone 64k;
+        server wordpress:80 max_fails=0 resolve;
+    }
     server {
         listen 80;
         server_name blog.{{ .Env.BASE_DOMAIN }};
@@ -96,11 +109,15 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_pass http://wordpress:80/;
+            proxy_pass http://wordpress_upstream;
         }
     }
 
     # Mastodon
+    upstream mastodon_upstream {
+        zone mastodon_zone 64k;
+        server mastodon:3000 max_fails=0 resolve;
+    }
     server {
         listen 80;
         server_name mastodon.{{ .Env.BASE_DOMAIN }};
@@ -123,11 +140,15 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_pass http://mastodon:3000/;
+            proxy_pass http://mastodon_upstream;
         }
     }
 
     # IA Generativa
+    upstream ia_upstream {
+        zone ia_zone 64k;
+        server ia:8080 max_fails=0 resolve;
+    }
     server {
         listen 80;
         server_name ia.{{ .Env.BASE_DOMAIN }};
@@ -150,7 +171,7 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_pass http://ia:8080/;
+            proxy_pass http://ia_upstream;
         }
     }
 }
