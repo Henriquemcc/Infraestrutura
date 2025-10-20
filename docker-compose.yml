@@ -18,4 +18,3 @@ networks:
       config:
         - subnet: 172.254.0.0/24
   default:
-    enable_ipv6: true
