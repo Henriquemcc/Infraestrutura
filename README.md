@@ -27,3 +27,18 @@ As tecnologias que possibilitaram a construção dessa infraestrutura, foram:
 - [Servidor de DNS recursivo Unbound](https://www.unbound.net)
 - [Gerador de certificados TLS/SSL Certbot](https://certbot.eff.org)
 
+## Como Executar
+
+Para subir a infraestrutura, siga os seguintes passos:
+
+### 1. Adicione as variáveis de ambiente
+
+Este projeto está dividido em pastas, as quais possuem arquivos de variáveis de ambiente ```.env.sample```. Para cada desses arquivos, crie uma cópia, com o nome ```.env```, e preencha com as informações relativas á infraestrutura que deseja construír.
+
+### 2. Suba a infraestrutura
+
+Com o Docker instalado em sua máquina, abra um terminal na pasta do projeto, e digite o seguinte comando:
+
+```sh
+docker compose up -d
+```
