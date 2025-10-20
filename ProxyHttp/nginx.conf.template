@@ -2,15 +2,32 @@ worker_processes auto;
 
 events {}
 
+upstream gitlab_upstream {
+    server gitlab:80 max_fails=0 resolve;
+}
+
+upstream nextcloud_upstream {
+    server nextcloud:80 max_fails=0 resolve;
+}
+
+upstream wordpress_upstream {
+    server wordpress:80 max_fails=0 resolve;
+}
+
+upstream mastodon_upstream {
+    server mastodon:3000 max_fails=0 resolve;
+}
+
+upstream ia_upstream {
+    server ia:8080 max_fails=0 resolve;
+}
+
 http {
     ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
     ssl_protocols       TLSv1.3;
 
     # GitLab
-    upstream gitlab_upstream {
-        server gitlab:80 max_fails=0 resolve;
-    }
     server {
         listen 80;
         server_name gitlab.{{ .Env.BASE_DOMAIN }};
@@ -38,9 +55,6 @@ http {
     }
 
     # nextcloud
-    upstream nextcloud_upstream {
-        server nextcloud:80 max_fails=0 resolve;
-    }
     server {
         listen 80;
         server_name nextcloud.{{ .Env.BASE_DOMAIN }};
@@ -80,9 +94,6 @@ http {
     }
     
     # wordpress
-    upstream wordpress_upstream {
-        server wordpress:80 max_fails=0 resolve;
-    }
     server {
         listen 80;
         server_name blog.{{ .Env.BASE_DOMAIN }};
@@ -110,9 +121,6 @@ http {
     }
 
     # Mastodon
-    upstream mastodon_upstream {
-        server mastodon:3000 max_fails=0 resolve;
-    }
     server {
         listen 80;
         server_name mastodon.{{ .Env.BASE_DOMAIN }};
@@ -140,9 +148,6 @@ http {
     }
 
     # IA Generativa
-    upstream ia_upstream {
-        server ia:8080 max_fails=0 resolve;
-    }
     server {
         listen 80;
         server_name ia.{{ .Env.BASE_DOMAIN }};
