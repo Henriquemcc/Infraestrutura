@@ -7,14 +7,13 @@ services:
     environment:
       - TZ='America/Sao_Paulo'
       - WEBPASSWORD=${WEBPASSWORD}
+      - FTLCONF_dns_upstreams=172.254.0.253
     volumes:
-      - ./setupVars.conf:/etc/pihole/setupVars.conf
       - Pihole_etc:/etc/pihole
       - Pihole_etc_dnsmasqd:/etc/dnsmasq.d
     networks:
       dns-network:
         ipv4_address: 172.254.0.252
-      default:
 
 volumes:
   Pihole_etc:
