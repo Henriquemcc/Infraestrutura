@@ -6,6 +6,7 @@ http {
     ssl_certificate     /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{{ .Env.BASE_DOMAIN }}/privkey.pem;
     ssl_protocols       TLSv1.3;
+    resolver 127.0.0.11 valid=30s;
 
     # GitLab
     upstream gitlab_upstream {
