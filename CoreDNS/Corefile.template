@@ -19,3 +19,8 @@ tls://.:853 {
     tls /etc/certs/fullchain.pem /etc/certs/privkey.pem
     forward . 172.254.0.253
 }
+
+quic://.:8853 {
+    tls /etc/certs/fullchain.pem /etc/certs/privkey.pem
+    forward . 172.254.0.253
+}
