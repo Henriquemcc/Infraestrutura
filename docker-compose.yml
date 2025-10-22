@@ -5,6 +5,7 @@ include:
   - ./Wordpress/docker-compose.yml
   - ./Mastodon/docker-compose.yml
   - ./IA/docker-compose.yml
+  - ./Dockpeek/docker-compose.yml
 
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml
