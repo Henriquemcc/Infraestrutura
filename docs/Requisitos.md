@@ -8,7 +8,8 @@ Requisitos para a infraestrutura:
 4. Rodar uma instância do Wordpress.
 5. Rodar uma instância do Mastodon.
 6. Rodar uma instância do MailCow.
-7. Todas as instâncias devem ser containers Docker.
+7. Rodar uma instância do Dockpeek.
+8. Todas as instâncias devem ser containers Docker.
 
 ## Requisitos do Servidor DNS Recursivo
 
@@ -50,3 +51,7 @@ Requisitos para o servidor DNS recursivo:
 
 1. Deve rodar no subdomínio "mail".
 2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+
+## Requisitos do Dockpeek
+
+1. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.

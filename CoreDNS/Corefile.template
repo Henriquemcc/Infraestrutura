@@ -6,6 +6,7 @@ ${BASE_DOMAIN} {
         whoami mastodon.${BASE_DOMAIN}
         whoami ia.${BASE_DOMAIN}
         whoami dns.${BASE_DOMAIN}
+        whoami dockpeek.${BASE_DOMAIN}
     }
 }
 
