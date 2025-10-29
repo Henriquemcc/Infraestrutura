@@ -6,7 +6,7 @@
 
 This project contains the files used to generate my self-hosted application infrastructure, with the aim of learning more about Docker, infrastructure as code and computer networks.
 
-In this project I run different open source applications, provided by the community in the form of Docker container.
+In this project I run different open source applications, provided by the community in the form of Docker containers.
 
 ## Self-Hosted Applications
 

@@ -6,7 +6,7 @@
 
 Este projeto contém os arquivos que utilizo para gerar a minha infraestrutura de aplicações auto-hospedadas, com o intuíto de aprender mais sobre o funcionamento de Docker, de infraestrutura como código e redes de computadores.
 
-Neste projeto rodo diferentes aplicações de código aberto, disponibilizadas pela comunidade na forma de container Docker.
+Neste projeto rodo diferentes aplicações de código aberto, disponibilizadas pela comunidade na forma de containers Docker.
 
 ## Aplicações Auto-Hospedadas
 
