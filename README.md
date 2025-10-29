@@ -6,7 +6,7 @@ Este é o projeto contém os arquivos que utilizo para gerar a minha infraestrut
 
 Neste projeto rodo diferentes aplicações de código aberto, disponibilizadas pela comunidade na forma de container Docker.
 
-## Aplicações Hospedadas
+## Aplicações Auto-Hospedadas
 
 As aplicações que auto-hospedo são as seguintes:
 
@@ -19,7 +19,7 @@ As aplicações que auto-hospedo são as seguintes:
 
 ## Tecnologias Utilizadas
 
-As tecnologias que possibilitaram a construção dessa infraestrutura, foram:
+As tecnologias que possibilitaram a construção dessa infraestrutura foram:
 
 - [Docker, Docker Compose e Dockerfile](https://www.docker.com)
 - [Proxy Reverso Nginx](https://nginx.org/en/)
@@ -33,12 +33,24 @@ Para subir a infraestrutura, siga os seguintes passos:
 
 ### 1. Adicione as variáveis de ambiente
 
-Este projeto está dividido em pastas, as quais possuem arquivos de variáveis de ambiente ```.env.sample```. Para cada desses arquivos, crie uma cópia, com o nome ```.env```, e preencha com as informações relativas á infraestrutura que deseja construír.
+Este projeto está dividido em pastas as quais possuem arquivos de variáveis de ambiente ```.env.sample```. Para cada desses arquivos, crie uma cópia, com o nome ```.env```, e preencha-os com as informações relativas à infraestrutura que deseja construír.
 
-### 2. Suba a infraestrutura
+### 2. Gere os certificados TLS
 
-Com o Docker instalado em sua máquina, abra um terminal na pasta do projeto, e digite o seguinte comando:
+Na pasta ```Certbot```, execute o seguinte comando:
+
+```sh
+docker compose up
+```
+
+E os certificados TLS serão gerados.
+
+### 3. Suba a infraestrutura
+
+Na pasta do projeto, execute o seguinte comando:
 
 ```sh
 docker compose up -d
 ```
+
+E a infraestrutura subirá.
