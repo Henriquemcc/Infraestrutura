@@ -29,6 +29,12 @@ As tecnologias que possibilitaram a construção dessa infraestrutura foram:
 - [Servidor de DNS recursivo Unbound](https://www.unbound.net)
 - [Gerador de certificados TLS/SSL Certbot](https://certbot.eff.org)
 
+## Arquitetura desenvolvida
+
+Foi desenvolvida a seguinte arquitetura:
+
+<img src="docs/Arquitetura.png">
+
 ## Como Executar
 
 Para subir a infraestrutura, siga os seguintes passos:

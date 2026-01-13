@@ -29,6 +29,12 @@ The technologies that allowed the construction of that infrastructure are:
 - [Unbound Recursive DNS Server](https://www.unbound.net)
 - [Certbot generator of TLS/SSL certificates](https://certbot.eff.org)
 
+## Developed Architecture
+
+The following architecture was developed:
+
+<img src="docs/Arquitetura.png">
+
 ## How to Run
 
 To deploy the infrastructure, follow these steps:
