@@ -6,6 +6,7 @@ include:
   - ./Mastodon/docker-compose.yml
   - ./IA/docker-compose.yml
   - ./Dockpeek/docker-compose.yml
+  - ./FreshRSS/docker-compose.yml
 
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml
