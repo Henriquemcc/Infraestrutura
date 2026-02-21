@@ -240,7 +240,7 @@ http {
     # Searxng
     upstream searxng_upstream {
         zone searxng_zone 64k;
-        server searxng:80 max_fails=0 resolve;
+        server searxng:8080 max_fails=0 resolve;
     }
     server {
         listen 80;
