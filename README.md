@@ -43,7 +43,7 @@ Para subir a infraestrutura, siga os seguintes passos:
 
 Este projeto está dividido em pastas as quais possuem arquivos de variáveis de ambiente ```.env.sample```. Para cada desses arquivos, crie uma cópia, com o nome ```.env```, e preencha-os com as informações relativas à infraestrutura que deseja construír.
 
-### 2. Gere os certificados TLS
+### 2. (Opcional) Gere os certificados TLS
 
 Na pasta ```Certbot```, execute o seguinte comando:
 
@@ -53,7 +53,11 @@ docker compose up
 
 E os certificados TLS serão gerados.
 
-### 3. Suba a infraestrutura
+### 3. Configure o Proxy HTTP
+
+Na pasta ```ProxyHttp```, renomeie um dos arquivos ```nginx.conf.template.http``` ou ```nginx.conf.template.https``` para ```nginx.conf.template```.
+
+### 4. Suba a infraestrutura
 
 Na pasta do projeto, execute o seguinte comando:
 
