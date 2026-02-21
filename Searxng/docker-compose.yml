@@ -1,0 +1,12 @@
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    hostname: searxng
+    volumes:
+      - searxng_config:/etc/searxng
+      - searxng_data:/var/cache/searxng
+
+volumes:
+  searxng_config:
+  searxng_data:
