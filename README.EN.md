@@ -43,7 +43,7 @@ To deploy the infrastructure, follow these steps:
 
 This project is divided in folders in which contains sample environment variables files ```.env.sample```. For each of these files, create a copy, with the name ```.env```, and fill them with the information related to the infrastructure that you aims to build.
 
-### 2. Generate the TLS/SSL certificates
+### 2. (Optional) Generate the TLS/SSL certificates
 
 In the folder ```Certbot```, execute the following command:
 
@@ -53,7 +53,11 @@ docker compose up
 
 And the TLS certificates will be generated.
 
-### 3. Deploy the infrastructure
+### 3. Configure the HTTP Proxy
+
+In the folder ```ProxyHttp```, rename one of those files ```nginx.conf.template.http``` or ```nginx.conf.template.https``` to ```nginx.conf.template```.
+
+### 4. Deploy the infrastructure
 
 In the project folder, execute the following command:
 
