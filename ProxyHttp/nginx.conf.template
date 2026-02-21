@@ -205,4 +205,35 @@ http {
             proxy_pass http://dockpeek_upstream;
         }
     }
+
+    # FreshRSS
+    upstream freshrss_upstream {
+        zone freshrss_zone 64k;
+        server freshrss:80 max_fails=0 resolve;
+    }
+    server {
+        listen 80;
+        server_name freshrss.{{ .Env.BASE_DOMAIN }};
+
+        # Allow Let's Encrypt challenges
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        # Redirect everything else to HTTPS
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+    server {
+        listen 443 ssl;
+        server_name freshrss.{{ .Env.BASE_DOMAIN }};
+        location / {
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_pass http://freshrss_upstream;
+        }
+    }
 }

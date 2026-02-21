@@ -1,0 +1,15 @@
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    hostname: freshrss
+    restart: always
+    volumes:
+      - freshrss_data:/var/www/FreshRSS/data
+      - freshrss_extensions:/var/www/FreshRSS/extensions
+    environment:
+      TZ: America/Sao_Paulo
+
+volumes:
+  freshrss_data:
+  freshrss_extensions:
