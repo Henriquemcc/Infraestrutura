@@ -88,21 +88,21 @@ http {
         }
     }
 
-    # IA Generativa
-    upstream ia_upstream {
-        zone ia_zone 64k;
-        server ia:8080 max_fails=0 resolve;
+    # Open Web UI
+    upstream openwebui_upstream {
+        zone openwebui_zone 64k;
+        server openwebui:8080 max_fails=0 resolve;
     }
     server {
         listen 80;
-        server_name ia.{{ .Env.BASE_DOMAIN }};
+        server_name openwebui.{{ .Env.BASE_DOMAIN }};
 
         location / {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_pass http://ia_upstream;
+            proxy_pass http://openwebui_upstream;
         }
     }
 
