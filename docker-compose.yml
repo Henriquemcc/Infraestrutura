@@ -4,7 +4,7 @@ include:
   - ./Nextcloud/docker-compose.yml
   - ./Wordpress/docker-compose.yml
   - ./Mastodon/docker-compose.yml
-  - ./IA/docker-compose.yml
+  - ./OpenWebUI/docker-compose.yml
   - ./Dockpeek/docker-compose.yml
   - ./FreshRSS/docker-compose.yml
   - ./Searxng/docker-compose.yml
