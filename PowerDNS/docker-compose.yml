@@ -3,8 +3,6 @@ services:
     image: powerdnsadmin/pda-legacy:latest
     container_name: powerdns_admin
     hostname: powerdns_admin
-    ports:
-      - "9191:80"
     depends_on:
       powerdns_auth:
         condition: service_healthy
