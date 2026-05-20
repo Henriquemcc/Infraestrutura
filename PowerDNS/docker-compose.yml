@@ -1,0 +1,51 @@
+services:
+  powerdns_admin:
+    image: powerdnsadmin/pda-legacy:latest
+    container_name: powerdns_admin
+    hostname: powerdns_admin
+    ports:
+      - "9191:80"
+    depends_on:
+      powerdns_auth:
+        condition: service_healthy
+    environment:
+      SQLALCHEMY_DATABASE_URI: "mysql://${POWERDNS_DB_USER}:${POWERDNS_DB_PASS}@mariadb/${POWERDNS_DB_NAME}"
+    volumes:
+      - powerdns_db_admin_upload:/app/upload
+  powerdns_auth:
+    image: powerdns/pdns-auth-50:latest
+    container_name: powerdns_auth
+    hostname: powerdns_auth
+    depends_on:
+      powerdns_db:
+        condition: service_healthy
+    volumes:
+      ./pdns-conf/pdns.conf:/etc/powerdns/pdns.conf:ro
+    ports:
+      - "55:53/tcp"
+      - "53:53/udp"
+    networks:
+      dns-network:
+        ipv4_address: 172.254.0.254
+      default:
+    healthcheck:
+      test: ["CMD", "pdns_control", "rping"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  powerdns_db:
+    image: mariadb:11
+    restart: unless-stopped
+    container_name: powerdns_db
+    hostname: powedns_db
+    environment:
+      MARIADB_ROOT_PASSWORD: "${POWERDNS_DB_ROOT_PASS}"
+      MARIADB_DATABASE: "${POWERDNS_DB_NAME}"
+      MARIADB_USER: "${POWERDNS_DB_USER}"
+      MARIADB_PASSWORD: "${POWERDNS_DB_PASS}"
+    volumes:
+      - powerdns_db:/var/lib/mysql
+    
+volumes:
+  powerdns_db:
+  powerdns_db_admin_upload:
