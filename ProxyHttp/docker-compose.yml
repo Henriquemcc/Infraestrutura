@@ -1,15 +1,15 @@
 services:
   nginx:
-    build: .
+    image: jc21/nginx-proxy-manager:latest
     container_name: nginx-proxy
     volumes:
-      - ./nginx.conf.template:/etc/nginx/nginx.conf.template
       - ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt
       - ~/letsencrypt/var/www/certbot:/var/www/certbot
     ports:
       - "80:80"
+      - "81:81"
       - "443:443"
 
     restart: always
     environment:
-      - BASE_DOMAIN=${BASE_DOMAIN}
+      TZ: "America/Sao_Paulo"
