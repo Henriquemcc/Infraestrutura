@@ -20,7 +20,7 @@ services:
       powerdns_db:
         condition: service_healthy
     volumes:
-      - ./pdns-conf/pdns.conf:/etc/powerdns/pdns.conf:ro
+      - ./pdns.conf:/etc/powerdns/pdns.conf:ro
     ports:
       - "55:53/tcp"
       - "53:53/udp"
