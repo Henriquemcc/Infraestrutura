@@ -43,6 +43,11 @@ services:
       MARIADB_PASSWORD: "${POWERDNS_DB_PASS}"
     volumes:
       - powerdns_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
     
 volumes:
   powerdns_db:
