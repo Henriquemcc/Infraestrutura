@@ -22,8 +22,23 @@ services:
     depends_on:
       powerdns_db:
         condition: service_healthy
-    volumes:
-      - ./pdns.conf:/etc/powerdns/pdns.conf:ro
+    environment:
+      - PDNS_LOCAL_ADDRESS="0.0.0.0,::"
+      - PDNS_LAUNCH=gmysql
+      - PDNS_GMYSQL_HOST=powerdns_db
+      - PDNS_GMYSQL_PORT=3306
+      - PDNS_GMYSQL_DBNAME=powerdns
+      - PDNS_GMYSQL_USER=powerdns
+      - PDNS_GMYSQL_PASSWORD=${POWERDNS_DB_PASS}
+      - PDNS_API=yes
+      - PDNS_API_KEY=${POWERDNS_API_KEY}
+      - PDNS_WEBSERVER=yes
+      - PDNS_WEBSERVER_ADDRESS=0.0.0.0
+      - PDNS_WEBSERVER_PORT=8081
+      - PDNS_WEBSERVER_ALLOW_FROM=0.0.0.0/0
+      - PDNS_DEFAULT_TTL=3600
+      - PDNS_DISABLE_SYSLOG=yes
+      - PDNS_LOGLEVEL=4
     ports:
       - "55:53/tcp"
       - "53:53/udp"
