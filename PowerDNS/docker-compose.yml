@@ -7,7 +7,7 @@ services:
       powerdns_auth:
         condition: service_healthy
     environment:
-      SQLALCHEMY_DATABASE_URI: "mysql://${POWERDNS_DB_USER}:${POWERDNS_DB_PASS}@mariadb/${POWERDNS_DB_NAME}"
+      SQLALCHEMY_DATABASE_URI: "mysql://${POWERDNS_DB_USER}:${POWERDNS_DB_PASS}@powerdns_db/${POWERDNS_DB_NAME}"
     volumes:
       - powerdns_db_admin_upload:/app/upload
     ports:
@@ -37,7 +37,7 @@ services:
     image: mariadb:11
     restart: unless-stopped
     container_name: powerdns_db
-    hostname: powedns_db
+    hostname: powerdns_db
     environment:
       MARIADB_ROOT_PASSWORD: "${POWERDNS_DB_ROOT_PASS}"
       MARIADB_DATABASE: "${POWERDNS_DB_NAME}"
