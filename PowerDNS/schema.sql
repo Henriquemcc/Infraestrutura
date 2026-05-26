@@ -18,7 +18,7 @@ CREATE TABLE records (
   domain_id             INT DEFAULT NULL,
   name                  VARCHAR(255) DEFAULT NULL,
   type                  VARCHAR(10) DEFAULT NULL,
-  content               VARCHAR(64000) DEFAULT NULL,
+  content               TEXT DEFAULT NULL,
   ttl                   INT DEFAULT NULL,
   prio                  INT DEFAULT NULL,
   disabled              TINYINT(1) DEFAULT 0,
