@@ -8,7 +8,7 @@ services:
         condition: service_healthy
     environment:
       - SQLALCHEMY_DATABASE_URI=mysql://${POWERDNS_DB_USER}:${POWERDNS_DB_PASS}@powerdns_db/${POWERDNS_DB_NAME}
-      - PDNS_API_URL=http://powerdns_auth:8181/
+      - PDNS_API_URL=http://powerdns_auth:8081/
       - PDNS_API_KEY=${POWERDNS_API_KEY}
     volumes:
       - powerdns_db_admin_upload:/app/upload
