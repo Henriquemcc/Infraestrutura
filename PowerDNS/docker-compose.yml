@@ -48,6 +48,7 @@ services:
       MARIADB_PASSWORD: "${POWERDNS_DB_PASS}"
     volumes:
       - powerdns_db:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     networks:
       powerdns_network:
     healthcheck:
