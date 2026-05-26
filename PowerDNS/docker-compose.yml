@@ -12,6 +12,8 @@ services:
       - powerdns_db_admin_upload:/app/upload
     ports:
       - "9191:80"
+    networks:
+      powerdns_network:
   powerdns_auth:
     image: powerdns/pdns-auth-50:latest
     container_name: powerdns_auth
@@ -28,6 +30,7 @@ services:
       dns-network:
         ipv4_address: 172.254.0.252
       default:
+      powerdns_network:
     healthcheck:
       test: ["CMD", "pdns_control", "rping"]
       interval: 15s
@@ -45,6 +48,8 @@ services:
       MARIADB_PASSWORD: "${POWERDNS_DB_PASS}"
     volumes:
       - powerdns_db:/var/lib/mysql
+    networks:
+      powerdns_network:
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 10s
@@ -54,3 +59,6 @@ services:
 volumes:
   powerdns_db:
   powerdns_db_admin_upload:
+
+networks:
+  powerdns_network:
