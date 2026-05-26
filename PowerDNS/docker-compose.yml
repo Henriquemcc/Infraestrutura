@@ -28,10 +28,10 @@ services:
       - "55:53/tcp"
       - "53:53/udp"
     networks:
+      powerdns_network:
       dns-network:
         ipv4_address: 172.254.0.252
       default:
-      powerdns_network:
     healthcheck:
       test: ["CMD", "pdns_control", "rping"]
       interval: 15s
