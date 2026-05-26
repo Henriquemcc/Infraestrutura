@@ -1,0 +1,20 @@
+# PowerDNS authoritative server config
+local-address=0.0.0.0,::
+launch=gmysql
+gmysql-host=powerdns_db
+gmysql-port=3306
+gmysql-dbname=powerdns
+gmysql-user=powerdns
+gmysql-password=
+
+# HTTP API and web server for PowerDNS-Admin
+api=yes
+api-key=
+webserver=yes
+webserver-address=0.0.0.0
+webserver-port=8081
+webserver-allow-from=0.0.0.0/0
+
+default-ttl=3600
+disable-syslog=yes
+loglevel=4
