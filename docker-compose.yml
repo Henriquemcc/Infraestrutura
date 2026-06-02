@@ -8,6 +8,7 @@ include:
   - ./Dockpeek/docker-compose.yml
   - ./FreshRSS/docker-compose.yml
   - ./Searxng/docker-compose.yml
+  - ./n8n/docker-compose.yml
 
   # Infraestrutura
   - ./ProxyHttp/docker-compose.yml

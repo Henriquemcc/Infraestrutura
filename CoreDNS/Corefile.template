@@ -9,6 +9,7 @@ ${BASE_DOMAIN} {
         whoami dockpeek.${BASE_DOMAIN}
         whoami freshrss.${BASE_DOMAIN}
         whoami searxng.${BASE_DOMAIN}
+        whoami n8n.${BASE_DOMAIN}
     }
 }
 
