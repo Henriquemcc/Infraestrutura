@@ -13,5 +13,12 @@ ${BASE_DOMAIN} {
 }
 
 . {
-    forward . 172.254.0.252
+    forward . 172.254.0.252 {
+        tls_servername dns.${BASE_DOMAIN}
+    }
+}
+
+tls://.:853 {
+    tls /etc/certs/fullchain.pem /etc/certs/privkey.pem
+    forward . 172.254.0.253
 }
