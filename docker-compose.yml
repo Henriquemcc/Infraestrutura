@@ -5,7 +5,6 @@ include:
   - ./Wordpress/docker-compose.yml
   - ./Mastodon/docker-compose.yml
   - ./OpenWebUI/docker-compose.yml
-  - ./Dockpeek/docker-compose.yml
   - ./FreshRSS/docker-compose.yml
   - ./Searxng/docker-compose.yml
 
@@ -13,6 +12,10 @@ include:
   - ./ProxyHttp/docker-compose.yml
   - ./CoreDNS/docker-compose.yml
   - ./Unbound/docker-compose.yml
+
+  # Gerenciamento
+  - ./Dockpeek/docker-compose.yml
+  - ./Portainer/docker-compose.yml
 
 networks:
   dns-network:
