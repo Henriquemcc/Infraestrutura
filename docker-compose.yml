@@ -8,10 +8,13 @@ include:
   - ./FreshRSS/docker-compose.yml
   - ./Searxng/docker-compose.yml
 
-  # Infraestrutura
+  # HTTP
   - ./ProxyHttp/docker-compose.yml
+
+  # DNS
   - ./CoreDNS/docker-compose.yml
   - ./Unbound/docker-compose.yml
+  - ./Pi-Hole/docker-compose.yml
 
   # Gerenciamento
   - ./Dockpeek/docker-compose.yml
