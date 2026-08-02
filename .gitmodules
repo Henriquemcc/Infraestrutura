@@ -1,3 +1,6 @@
 [submodule "Wordpress"]
 	path = Wordpress
 	url = ./Wordpress
+[submodule "Mastodon"]
+	path = Mastodon
+	url = ./Mastodon

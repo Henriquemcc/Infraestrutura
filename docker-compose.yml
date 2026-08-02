@@ -2,7 +2,6 @@ include:
   # Serviços
   # - ./GitLab/docker-compose.yml
   - ./Nextcloud/docker-compose.yml
-  - ./Mastodon/docker-compose.yml
   - ./OpenWebUI/docker-compose.yml
   - ./FreshRSS/docker-compose.yml
   - ./Searxng/docker-compose.yml
