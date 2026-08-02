@@ -1,0 +1,3 @@
+[submodule "Wordpress"]
+	path = Wordpress
+	url = ./Wordpress
