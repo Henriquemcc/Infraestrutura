@@ -8,6 +8,10 @@ resources:
 - tenant-config.yaml
 - storage-user.yaml
 - tenant.yaml
-- minio-pv.yaml
+- minio-pv0.yaml
+- minio-pv1.yaml
+- minio-pv2.yaml
+- minio-pv3.yaml
+- minio-pv4.yaml
 - minio-storageclass.yaml
 - console-nodeport.yaml
