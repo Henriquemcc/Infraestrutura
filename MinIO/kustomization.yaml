@@ -9,3 +9,4 @@ resources:
 - storage-user.yaml
 - tenant.yaml
 - minio-pv.yaml
+- minio-storageclass.yaml

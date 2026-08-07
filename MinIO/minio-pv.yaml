@@ -10,3 +10,11 @@ spec:
   storageClassName: minio-local
   hostPath:
     path: /var/minio
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - ubuntu
