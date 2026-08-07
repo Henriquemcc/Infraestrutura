@@ -41,5 +41,5 @@ Altere o valor da variável ```MINIO_ROOT_USER``` e gere um novo valor para a va
 Em um Terminal, PowerShell ou Prompt de Comando, execute o seguinte comando:
 
 ```shell
-kubectl apply -k kustomization.yaml
+kubectl apply -k .
 ```
