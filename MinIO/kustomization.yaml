@@ -10,3 +10,4 @@ resources:
 - tenant.yaml
 - minio-pv.yaml
 - minio-storageclass.yaml
+- console-nodeport.yaml

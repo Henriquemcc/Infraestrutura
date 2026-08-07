@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-console-nodeport
+  namespace: minio-tenant
+spec:
+  type: NodePort
+  selector:
+    v1.min.io/tenant: myminio
+  ports:
+    - name: console
+      port: 9090
+      targetPort: 9090
+      nodePort: 30090   # porta fixa (30000-32767)
