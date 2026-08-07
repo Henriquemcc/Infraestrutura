@@ -198,7 +198,7 @@ spec:
           resources:
             requests:
               storage: 1Ti
-          storageClassName: standard
+          storageClassName: minio-local
         status: { }
       ## Configure Pod's security context
       ## We recommend to skip the recursive permission change by using
