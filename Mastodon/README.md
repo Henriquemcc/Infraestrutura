@@ -31,11 +31,7 @@ helm repo update
 
 ### Gerando arquivo de configuração
 
-Em um Terminal, PowerShell ou Prompt de Comando, execute o seguinte comando:
-
-```shell
-helm show values mastodon/mastodon > values.yaml
-```
+Copie o arquivo ```values.yaml.sample``` para ```values.yaml```.
 
 ### Altere os valores do arquivo de configuração
 
