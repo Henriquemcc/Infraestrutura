@@ -1,0 +1,56 @@
+mastodon:
+
+  # The name/URL of your mastodon instance.
+  localDomain: mydomain.social
+
+  # Mastodon secrets.
+  # To generate these, see:
+  # https://docs.joinmastodon.org/admin/config/#secrets
+  # https://docs.joinmastodon.org/admin/config/#db-encryption-support
+  secrets:
+    secretKeyBase: XXXXXXXXXXXXXXXX
+    vapidPrivateKey: XXXXXXXXXXXXXXXX
+    vapidPublicKey: XXXXXXXXXXXXXXXX
+    arePrimaryKey: XXXXXXXXXXXXXXXX
+    areDeterministicKey: XXXXXXXXXXXXXXXX
+    areKeyDerivationSalt: XXXXXXXXXXXXXXXX
+
+  # S3 storage for media.
+  # Make sure to use your own S3 connection information.
+  s3:
+    hostname: s3.us-east-1.amazonaws.com
+    endpoint: https://s3.us-east-1.amazonaws.com/
+    region: us-east-1
+    bucket: mastodon-media
+
+    accessKeyId: XXXXXXXXXXXXXXXX
+    secretAccessKey: XXXXXXXXXXXXXXXX
+
+  # SMTP configuration for sending emails to users.
+  # Make sure to use your own SMTP provider URL and credentials.
+  smtp:
+    server: smtp.postmarkapp.com
+    username: XXXXXXXXXXXXXXXX
+    password: XXXXXXXXXXXXXXXX
+
+# Ingress information (needs to match your localDomain).
+ingress:
+  hosts:
+    - host: mydomain.social
+      paths:
+        - path: "/"
+          pathType: Prefix
+  tls:
+    - secretName: mastodon-tls
+      hosts:
+        - mydomain.social
+
+# External database connection info.
+# Make sure to use your own connection information.
+postgresql:
+  hostname: postgres.endpoint
+  username: mastodon
+  password: XXXXXXXXXXXXXXXX
+redis:
+  hostname: redis.endpoint
+  password: XXXXXXXXXXXXXXXX
