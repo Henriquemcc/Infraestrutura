@@ -42,7 +42,7 @@ Em um editor de texto, abra o arquivo [values.yaml](values.yaml) e altere os val
 Em um Terminal, PowerShell ou Prompt de Comando, execute o seguinte comando:
 
 ```shell
-helm install --namespace mastodon --create-namespace mastodon mastodon/mastodon -f values.yaml
+helm install mastodon mastodon --values ./my-values.yaml
 ```
 
 ### Acesse localmente
