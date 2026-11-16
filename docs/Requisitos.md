@@ -2,14 +2,24 @@
 
 Requisitos para a infraestrutura:
 
-1. Rodar uma instância de servidor DNS recursivo.
-2. Rodar uma instância do Nextcloud.
-3. Rodar uma instância do GitLab.
-4. Rodar uma instância do Wordpress.
-5. Rodar uma instância do Mastodon.
-6. Rodar uma instância do MailCow.
-7. Rodar uma instância do Dockpeek.
-8. Todas as instâncias devem ser containers Docker.
+1. Rodar uma instância do MinIO.
+2. Rodar uma instância de servidor DNS recursivo.
+3. Rodar uma instância do Nextcloud.
+4. Rodar uma instância do GitLab.
+5. Rodar uma instância do Wordpress.
+6. Rodar uma instância do Mastodon.
+7. Rodar uma instância do MailCow.
+8. Rodar uma instância do Dockpeek.
+9. Todas as instâncias devem ser pods Kubernetes, dando preferência para Healms Kubernetes.
+
+## Requisitos do MinIO
+
+Requisitos para o MinIO:
+
+1. Deve rodar no subdomínio "minio".
+2. O certificado SSL/TLS deve ser assinado digitalmente pelo Let's Encrypt.
+3. Os dados armazenados devem ser salvos na pasta "~/MinIO".
+
 
 ## Requisitos do Servidor DNS Recursivo
 
